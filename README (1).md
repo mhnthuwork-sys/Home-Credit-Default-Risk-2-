@@ -1,17 +1,17 @@
 # IFRS 9 Credit Risk Engine
 ## PD-LGD-EAD Modelling, Validation & Portfolio Reporting
 
-> **Portfolio project** simulating the end-to-end workflow of a credit risk consultant at a Big 4 firm, aligned with **Basel II/III** and **IFRS 9** standards.
+> **Portfolio project** simulating the end-to-end workflow of a credit risk pipline, aligned with **Basel II/III** and **IFRS 9** standards.
 
 ---
 
 ## Project Overview
 
-This project builds a complete credit risk modelling pipeline on the **Home Credit Default Risk** dataset (Kaggle, 307,511 retail loan applications). It covers all major components a risk consultant works on daily: model development, IFRS 9 staging, ECL calculation, model validation, stress testing, and portfolio reporting.
+This project builds a complete credit risk modelling pipeline on the **Home Credit Default Risk** dataset (Kaggle, 307,511 retail loan applications). It covers all major components a credit risk process works on: model development, IFRS 9 staging, ECL calculation, model validation, stress testing, and portfolio reporting.
 
 ### Why This Project?
 
-Designed to demonstrate competency for roles in **Regulatory Risk Compliance / Credit Risk Modelling** at Big 4 firms (PwC, EY, Deloitte, KPMG), covering:
+Designed to cover:
 - PD/LGD/EAD model development per Basel II/IFRS 9
 - Model validation (discrimination, calibration, stability)
 - Portfolio stress testing
@@ -108,51 +108,6 @@ credit_risk_project/
 └── [data files — not included, download from Kaggle]
     ├── application_train.csv
     └── POS_CASH_balance.csv
-```
-
----
-
-## How to Run (Google Colab)
-
-### Step 1: Get the data
-```python
-# In Colab — download from Kaggle API
-import os
-os.environ['KAGGLE_USERNAME'] = 'your_username'
-os.environ['KAGGLE_KEY'] = 'your_api_key'
-
-!pip install kaggle -q
-!kaggle competitions download -c home-credit-default-risk
-!unzip -q home-credit-default-risk.zip
-```
-
-### Step 2: Upload project files
-Upload `credit_risk.py` and `credit_risk.sql` to Colab (drag & drop or Files panel).
-
-### Step 3: Run the pipeline
-```python
-# Run the entire pipeline in one go
-exec(open('credit_risk.py').read())
-```
-
-Or paste contents into Colab cells and run section by section (recommended for learning).
-
-### Step 4: Query results
-```python
-import sqlite3, pandas as pd
-conn = sqlite3.connect('credit_risk.db')
-
-# Portfolio risk report
-pd.read_sql("SELECT * FROM report_portfolio_risk", conn)
-
-# Booking profile
-pd.read_sql("SELECT * FROM report_booking_profile", conn)
-
-# Raw ECL results
-pd.read_sql("SELECT * FROM ecl_results LIMIT 20", conn)
-```
-
----
 
 ## Key Results Interpretation
 

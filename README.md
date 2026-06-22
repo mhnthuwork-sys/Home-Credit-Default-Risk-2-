@@ -1,4 +1,4 @@
-# IFRS 9 Credit Risk Engine
+# Home Credit Default Risk
 ## PD-LGD-EAD Modelling, Validation & Portfolio Reporting
 
 > **Portfolio project** simulating the end-to-end workflow, aligned with **Basel II/III** and **IFRS 9** standards.

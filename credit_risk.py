@@ -3,13 +3,7 @@
 # Python Layer: Data Loading, PD Model, LGD/EAD, ECL, Validation, Stress Test
 # Environment: Google Colab
 # Dataset: Home Credit Default Risk (Kaggle)
-# Author: Thu Nguyen | Portfolio Project for Big 4 Credit Risk Consulting
 # ============================================================
-#
-# HOW TO RUN (Google Colab):
-# 1. Upload application_train.csv va POS_CASH_balance.csv len Colab
-# 2. Chay tung section theo thu tu (STEP 0 -> STEP 6)
-# 3. Ket qua cuoi: SQLite database "credit_risk.db" chua toan bo tables va views
 #
 # DATA FILES CAN:
 #   - application_train.csv  (307,511 rows x 122 cols)

@@ -33,7 +33,7 @@ RAW DATA (Kaggle Home Credit)
                   │ Join on SK_ID_CURR
                   ▼
         ┌─────────────────────┐
-        │  STEP 1: SQL DATAMART│  (SQLite via sqlite3)
+        │ STEP 1: SQL DATAMART│  (MySQL)
         │  - IFRS 9 Staging   │  LAG(SK_DPD) -> Stage 1/2/3
         │  - Vintage Analysis │  Cohort cumulative default rate
         │  - Exposure View    │  EAD = AMT_CREDIT, LGD by collateral
@@ -42,7 +42,7 @@ RAW DATA (Kaggle Home Credit)
                    ▼
         ┌─────────────────────┐
         │  STEP 2: PD MODEL   │  (sklearn LogisticRegression)
-        │  Features: EXT_SOURCE│  WOE-style risk signals
+        │ Features: EXT_SOURCE│  WOE-style risk signals
         │  Output: PD (0-1)   │  + Scorecard (300-850 pts)
         └──────────┬──────────┘
                    │
@@ -80,14 +80,14 @@ RAW DATA (Kaggle Home Credit)
 
 ## Tools & Libraries
 
-| Layer        | Tool / Library              | Purpose                                      |
-|--------------|-----------------------------|----------------------------------------------|
-| Database     | SQLite (built-in `sqlite3`) | Datamart, staging, vintage, reporting views  |
-| Data wrangling | `pandas`, `numpy`         | Feature engineering, ECL calculation         |
-| Modelling    | `scikit-learn`              | Logistic Regression, train/test split, scaler|
-| Validation   | `sklearn.metrics`           | AUC, Brier Score; custom PSI function        |
-| Visualisation| `matplotlib`                | ROC curve, PD distribution, ECL charts       |
-| Environment  | Google Colab                | Free GPU/CPU, no local setup needed          |
+| Layer          | Tool / Library              | Purpose                                      |
+|--------------- |-----------------------------|----------------------------------------------|
+| Database       | MySQL                       | Datamart, staging, vintage, reporting views  |
+| Data wrangling | `pandas`, `numpy`           | Feature engineering, ECL calculation         |
+| Modelling      | `scikit-learn`              | Logistic Regression, train/test split, scaler|
+| Validation     | `sklearn.metrics`           | AUC, Brier Score; custom PSI function        |
+| Visualisation  | `matplotlib`                | ROC curve, PD distribution, ECL charts       |
+| Environment    | Google Colab                | Free GPU/CPU, no local setup needed          |
 
 No additional installs required in Google Colab — all libraries are pre-installed.
 
@@ -140,7 +140,7 @@ credit_risk_project/
 
 ### IFRS 9 Stages
 | Stage | DPD Condition | ECL Horizon | Typical Action |
-|-------|--------------|-------------|----------------|
+|-------|-------------- |-------------|----------------|
 | 1     | DPD ≤ 30 days | 12-month | Standard provisioning |
 | 2     | DPD 31–90 days OR significant increase in credit risk | Lifetime | Increased monitoring |
 | 3     | DPD > 90 days | Lifetime | Non-performing, collections |

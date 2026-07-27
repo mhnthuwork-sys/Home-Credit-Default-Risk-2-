@@ -178,5 +178,4 @@ LGD in this project uses a **rule-based proxy**:
 
 - IFRS 9 Financial Instruments: IASB Standard (2014)
 - Basel II/III: BCBS Framework for Credit Risk (2006, 2017)
-- Siddiqi, N. (2006). *Credit Risk Scorecards*. Wiley.
 - Home Credit Default Risk: https://www.kaggle.com/c/home-credit-default-risk
